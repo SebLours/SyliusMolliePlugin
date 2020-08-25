@@ -3,3 +3,9 @@ sylius_payum:
         gateway_config:
           classes:
               model: Tests\BitBag\SyliusMolliePlugin\Entity\GatewayConfig
+
+sylius_product:
+  resources:
+    product:
+      classes:
+        model: Tests\BitBag\SyliusMolliePlugin\Entity\Product
