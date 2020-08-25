@@ -13,9 +13,12 @@ declare(strict_types=1);
 namespace BitBag\SyliusMolliePlugin\Form\Type;
 
 use BitBag\SyliusMolliePlugin\Documentation\DocumentationLinksInterface;
+use BitBag\SyliusMolliePlugin\Entity\ProductType;
 use BitBag\SyliusMolliePlugin\Payments\PaymentTerms\Options;
 use BitBag\SyliusMolliePlugin\Validator\Constraints\PaymentSurchargeType;
+use Sylius\Bundle\ProductBundle\Form\Type\ProductType as ProductFormType;
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
@@ -39,6 +42,13 @@ final class MollieGatewayConfigType extends AbstractResourceType
         $builder
             ->add('enabled', CheckboxType::class, [
                 'label' => 'bitbag_sylius_mollie_plugin.ui.enable',
+            ])
+            ->add('defaultCategory', EntityType::class, [
+                'class' => ProductType::class,
+                'label' => 'bitbag_sylius_mollie_plugin.form.product_type_default',
+                'required' => false,
+                'placeholder' => 'Choose an option',
+                'help' => 'bitbag_sylius_mollie_plugin.form.product_type_default_help'
             ])
             ->add('name', TextType::class, [
                 'required' => true,
@@ -89,5 +99,10 @@ final class MollieGatewayConfigType extends AbstractResourceType
     public function getBlockPrefix(): string
     {
         return 'bitbag_mollie_payment_method';
+    }
+
+    public static function getExtendedTypes(): array
+    {
+        return [ProductFormType::class];
     }
 }
