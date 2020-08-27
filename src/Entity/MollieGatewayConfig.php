@@ -18,28 +18,28 @@ use Sylius\Component\Resource\Model\ResourceInterface;
 class MollieGatewayConfig extends AbstractMethod implements ResourceInterface, MollieGatewayConfigInterface
 {
     /** @var int */
-    private $id;
+    protected $id;
 
     /** @var string */
-    private $methodId;
+    protected $methodId;
 
     /** @var GatewayConfigInterface */
-    private $gateway;
+    protected $gateway;
 
     /** @var PaymentSurchargeFeeInterface */
-    private $paymentSurchargeFee;
+    protected $paymentSurchargeFee;
 
     /** @var MollieMethodImageInterface */
-    private $customizeMethodImage;
+    protected $customizeMethodImage;
 
     /** @var array */
-    private $countryLevel;
+    protected $countryLevel;
 
     /** @var int */
-    private $orderExpiration = 28;
+    protected $orderExpiration = 28;
 
     /** @var string */
-    private $paymentDescription;
+    protected $paymentDescription;
 
     public function getId(): int
     {

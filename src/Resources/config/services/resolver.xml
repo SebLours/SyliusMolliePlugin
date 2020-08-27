@@ -34,7 +34,6 @@
             <argument type="service" id="sylius.repository.order_item_unit"/>
             <argument type="service" id="bitbag_sylius_mollie_plugin.remover.partial_ship.old_shipment_items_remover"/>
         </service>
-        <service id="bitbag_sylius_mollie_plugin.resolver.meal_voucher_resolver" class="BitBag\SyliusMolliePlugin\Resolver\MealVoucherResolver">
-        </service>
+        <service id="bitbag_sylius_mollie_plugin.resolver.meal_voucher_resolver" class="BitBag\SyliusMolliePlugin\Resolver\MealVoucherResolver"/>
     </services>
 </container>

@@ -109,7 +109,7 @@ final class ConvertOrder implements ConvertOrderInterface
 
         foreach ($this->order->getItems() as $item) {
             $details[] = [
-                'category' => $this->mealVoucherResolver->resolve($method, $item, $details),
+                'category' => $this->mealVoucherResolver->resolve($method, $item),
                 'name' => $item->getProductName(),
                 'quantity' => $item->getQuantity(),
                 'vatRate' => (string)($this->getTaxRatesUnitItem($item->getVariant()) * 100),
